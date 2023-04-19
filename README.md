@@ -1,6 +1,6 @@
   # The game 2048:
   
-   [DEMO LINK](https://vitalii-heiko.github.io/landing_Miami/)
+   [DEMO LINK](https://vitalii-heiko.github.io/js_2048_game/)
 
   # Description:
 

@@ -6,7 +6,9 @@ const messageWin = document.querySelector('.message-win');
 const messageLose = document.querySelector('.message-lose');
 const gameScore = document.querySelector('.game-score');
 const rows = document.querySelectorAll('.field-row');
+
 let score = 0;
+let startButtonPressed = false;
 let gameField = [
   [0, 0, 0, 0],
   [0, 0, 0, 0],
@@ -66,6 +68,8 @@ function setTwoOrFour() {
 
   if (hasEmptyCell() && gameField[row][cell] === 0) {
     gameField[row][cell] = Math.floor(Math.random() >= 0.9 ? 4 : 2);
+  } else {
+    return setTwoOrFour();
   }
 
   setGameField();
@@ -162,6 +166,7 @@ function srartGame() {
   messageStart.classList.add('hidden');
   messageWin.classList.add('hidden');
   messageLose.classList.add('hidden');
+  startButtonPressed = true;
   setTwoOrFour();
   setTwoOrFour();
 };
@@ -191,29 +196,31 @@ button.addEventListener('click', () => {
 });
 
 document.addEventListener('keyup', (e) => {
-  switch (e.key) {
-    case 'ArrowUp':
-      slideUp();
-      setTwoOrFour();
+  if (startButtonPressed) {
+    switch (e.key) {
+      case 'ArrowUp':
+        slideUp();
+        setTwoOrFour();
 
-      break;
-    case 'ArrowDown':
-      slideDown();
-      setTwoOrFour();
+        break;
+      case 'ArrowDown':
+        slideDown();
+        setTwoOrFour();
 
-      break;
+        break;
 
-    case 'ArrowRight':
-      slideRight();
-      setTwoOrFour();
+      case 'ArrowRight':
+        slideRight();
+        setTwoOrFour();
 
-      break;
+        break;
 
-    case 'ArrowLeft':
-      slideLeft();
-      setTwoOrFour();
+      case 'ArrowLeft':
+        slideLeft();
+        setTwoOrFour();
 
-      break;
+        break;
+    }
   }
 
   gameScore.textContent = score;

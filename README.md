@@ -1,4 +1,4 @@
-  # Landing MIAMI:
+  # The game 2048:
   
    [DEMO LINK](https://vitalii-heiko.github.io/landing_Miami/)
 
@@ -11,3 +11,4 @@
   * SASS
   * Javascript
   * BEM
+  
